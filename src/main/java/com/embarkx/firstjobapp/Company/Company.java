@@ -1,5 +1,6 @@
 package com.embarkx.firstjobapp.Company;
 
+import com.embarkx.firstjobapp.Review.Review;
 import com.embarkx.firstjobapp.job.Job;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -15,6 +16,17 @@ import java.util.List;
         @JsonIgnore
         @OneToMany(mappedBy = "company")
         private List<Job> jobs;
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    @OneToMany(mappedBy = "company")
+        private List<Review> reviews;
 
         public Company() {
 
